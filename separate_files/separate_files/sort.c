@@ -7,20 +7,7 @@
 //
 
 #include <stdio.h>
-#include "lib.h"
-
-int compare(int a[], int n) {
-    int changed;
-    int i;
-    changed = 0;
-    for (i = 0; i < n - 1; i++) {
-        if (a[i] > a[i + 1]) {
-            exchange(a, i);
-            changed = 1;
-        }
-    }
-    return changed;
-}
+#include "compare.h"
 
 int main(int argc, const char * argv[]) {
     

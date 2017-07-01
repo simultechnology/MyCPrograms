@@ -3,14 +3,17 @@ CFLAGS = -g
 
 all: $(TARGET)
 
-$(TARGET): sort.o lib.o
-			gcc $(CFLAGS) sort.o lib.o -o $(TARGET)
+$(TARGET): sort.o compare.o lib.o
+			gcc $(CFLAGS) sort.o compare.o lib.o -o $(TARGET)
 
-sort.o: lib.h sort.c
+sort.o: compare.h sort.c
 			gcc $(CFLAGS) -c sort.c
+
+compare.o: lib.h compare.h compare.c
+			gcc $(CFLAGS) -c compare.c
 
 lib.o: lib.h lib.c
 			gcc $(CFLAGS) -c lib.c
 
 clean:
-	rm -f $(TARGET) sort.o lib.o
+	$(RM) $(TARGET) *.o
